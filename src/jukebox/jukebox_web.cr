@@ -1,5 +1,4 @@
 require "kemal"
-require "crustache"
 
 module Jukebox
   class JukeboxWeb

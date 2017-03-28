@@ -9,10 +9,6 @@ targets:
     main: src/jukebox.cr
 
 dependencies:
-  cli:
-    github: mosop/cli
-  crustache:
-    github: MakeNowJust/crustache
   kemal:
     github: kemalcr/kemal
     branch: master

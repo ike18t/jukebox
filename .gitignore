@@ -3,3 +3,8 @@
 /bin/
 /.shards/
 tags*
+public/*.js
+*.log
+frontend/typings
+frontend/node_modules
+*.db
