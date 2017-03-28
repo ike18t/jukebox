@@ -1,0 +1,35 @@
+name: jukebox
+version: 0.1.0
+
+authors:
+  - Isaac Datlof <ike18t@gmail.com>
+
+targets:
+  jukebox:
+    main: src/jukebox.cr
+
+dependencies:
+  cli:
+    github: mosop/cli
+  crustache:
+    github: MakeNowJust/crustache
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+  spotify:
+    github: ike18t/spotify.cr
+    branch: master
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
+  spec-kemal:
+    github: kemalcr/spec-kemal
+    branch: master
+
+crystal: 0.21.1
+
+license: MIT

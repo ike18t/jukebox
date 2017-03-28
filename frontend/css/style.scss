@@ -1,0 +1,168 @@
+@import 'base-min.css';
+@import 'extruding-button.css';
+@import 'grids-min.css';
+@import 'grids-responsive-min.css';
+/*
+** Fonts
+*/
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700);
+
+/*
+** Entity List
+*/
+
+body { background:black; font-size:16px; }
+
+
+/*
+** Entity List
+*/
+
+.entity-list {
+  list-style: none;
+  margin:0; padding:0;
+}
+
+
+/*
+** Users
+*/
+
+.users {
+  color: #FFF;
+  margin: 0 0 0 1em;
+}
+
+.user > .name {
+  font: 300 1em 'Oswald', sans-serif;
+  cursor: pointer;
+  padding: .25em 0 .25em 0em;
+  text-transform: uppercase;
+  display: inline-block
+}
+
+.user > .name:hover {
+  color: #0DBCFF;
+  text-shadow: 0px 0px .5em #FFF;
+}
+
+.user.disabled .playlists { height: 0px; overflow: hidden; }
+
+/*
+** Playlists
+*/
+.playlist { margin-bottom: 1em; }
+
+.playlist > .name {
+  font: 700 1em 'Titillium Web', sans-serif;
+  cursor: pointer;
+}
+
+.playlist .toggle { display: none; }
+
+.playlist:not(.disabled) > .name .content {
+  background: #0DBCFF;
+  box-shadow: 0px 0px .5em 0px #0DBCFF;
+  text-shadow: 0px 0px .5em #FFF;
+}
+
+/*
+** Add Playlist Button
+*/
+
+.add-playlist {
+  color: #FFF;
+  font: 300 1em 'Titillium Web', sans-serif;
+  margin: 2.5em 0 0 1em;
+  outline: none;
+}
+
+/*
+** Extending Extrusion Effect
+*/
+
+.transformed {
+  border: none;
+  display: inline-block;
+}
+
+
+/*
+** Now Playing
+*/
+
+.now-playing {
+  color: #FFF;
+  font: 300 1em 'Oswald', sans-serif;
+  padding: 1em 0 0 0;
+}
+
+.now-playing .album-art {
+  box-shadow: 0px 0px 50em 0;
+  color: #0DBCFF;
+  display: inline-block;
+  width: 25em; height: 25em;
+  background-size: cover;
+  overflow: hidden;
+  &:hover .album-art-overlay {
+    opacity: 1;
+  }
+}
+
+.album-art-overlay {
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1.3em 0 1.4em 0;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.5s;
+  font-weight: 900;
+  color: rgba(255,255,255,.85);
+  font-size: 96px;
+}
+
+.now-playing .skip-button{
+  background-color: none;
+  display: inline-block;
+  overflow: hidden;
+  height: 25em;
+  vertical-align: top;
+  opacity: 0;
+  transition: all 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.now-playing .skip-button .fa-step-forward{
+  background-color: none;
+  font-weight: 900;
+  font-size: 96px;
+  padding: 1.6em .1em 1.4em .1em;
+}
+
+.now-playing .album-artist {
+  margin: 0 0 1em 0;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.now-playing .album-title {
+  font-size: 2em;
+  margin: 0 0 1em 0 ;
+  position: relative;
+  z-index: 1;
+}
+
+.add-playlist {
+  width: 20em;
+  fieldset {
+    border: none;
+
+    input[type='url'] {
+      width: 15em;
+    }
+  }
+}

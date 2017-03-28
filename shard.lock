@@ -1,0 +1,54 @@
+version: 1.0
+shards:
+  callback:
+    github: mosop/callback
+    version: 0.6.2
+
+  cli:
+    github: mosop/cli
+    version: 0.6.8
+
+  crustache:
+    github: MakeNowJust/crustache
+    version: 2.3.0
+
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.3.3
+
+  kemal:
+    github: kemalcr/kemal
+    commit: f1edf81d95f0c38628cabce6871681faf4d83de5
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.3.3
+
+  optarg:
+    github: mosop/optarg
+    version: 0.5.7
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.8
+
+  spec-kemal:
+    github: kemalcr/spec-kemal
+    commit: 05cc810f5f5ed890f16bcb06461000b97c625959
+
+  spotify:
+    github: ike18t/spotify.cr
+    commit: a539c94dcb663caabbe58b4b7aaecd40d17564a6
+
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+    version: 0.8.1
+
+  string_inflection:
+    github: mosop/string_inflection
+    version: 0.2.0
+
+  webmock:
+    github: manastech/webmock.cr
+    commit: c673f393a31eac2734c7599897357ef1f3f24011
+
