@@ -20,9 +20,9 @@ module Jukebox
       #   user
       # end
 
-      # def self.get_enabled_users
-      #   get_users.select(&:enabled?)
-      # end
+      def self.get_enabled_users
+        get_users.select(&.enabled?)
+      end
 
       def self.enable_user(id)
         set_enabled id, true

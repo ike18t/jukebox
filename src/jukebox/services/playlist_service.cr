@@ -11,6 +11,14 @@ module Jukebox
         new_playlist
       end
 
+      def self.get_enabled_playlists
+        get_playlists.select(&.enabled?)
+      end
+
+      def self.get_enabled_playlists_for_user(user_id)
+        get_enabled_playlists.select { |playlist| playlist.user_id == user_id }
+      end
+
       def self.disable_playlist(id)
         set_enabled id, false
       end

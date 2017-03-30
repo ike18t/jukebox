@@ -15,7 +15,7 @@ module Jukebox
     end
 
     def pop
-      @track_history.shift
+      @track_history.shift if @track_history.size > 0
       Services::CacheService(Models::Track).set(@track_history)
     end
 
