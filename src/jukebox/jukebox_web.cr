@@ -76,17 +76,17 @@ module Jukebox
     end
 
     put "/pause" do
-      Services::SpotifyService.pause
+      Services::CacheService(Models::PlayerState).set([Models::PlayerState.new(paused: true)])
       broadcast({ play_status: Models::PlayStatus.new(false) })
     end
 
     put "/play" do
-      Services::SpotifyService.play
+      Services::CacheService(Models::PlayerState).set([Models::PlayerState.new()])
       broadcast({ play_status: Models::PlayStatus.new(true) })
     end
 
     put "/skip" do
-      Services::SpotifyService.skip
+      Services::CacheService(Models::PlayerState).set([Models::PlayerState.new(skip: true)])
     end
 
     private def self.broadcast_enabled(web_sockets = @@web_socket_connections)
