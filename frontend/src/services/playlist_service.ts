@@ -7,10 +7,12 @@ export class PlaylistService {
   constructor(private http: Http) {}
 
   enablePlaylist(playlist: Playlist) {
-    this.http.put(`/playlists/${playlist.id}/enable`, {}).subscribe();
+    const playlistId = encodeURI(playlist.id);
+    this.http.put(`/playlists/${playlistId}/enable`, {}).subscribe();
   }
 
   disablePlaylist(playlist: Playlist) {
-    this.http.put(`/playlists/${playlist.id}/disable`, {}).subscribe();
+    const playlistId = encodeURI(playlist.id);
+    this.http.put(`/playlists/${playlistId}/disable`, {}).subscribe();
   }
 }

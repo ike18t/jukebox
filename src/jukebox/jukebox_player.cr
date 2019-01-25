@@ -12,7 +12,7 @@ module Jukebox
     def start!
       play_a_song
       loop do
-        play_a_song if Services::SpotifyService.end_of_song?
+        play_a_song unless Services::SpotifyService.playing?
         sleep 2
       end
     end
@@ -33,8 +33,8 @@ module Jukebox
 
         unless track.nil?
           @historian.pop
-          Services::SpotifyService.play track.id
-          notify track, @current_user
+          Services::SpotifyService.play track.uri
+          notify track, current_user
         end
 
         break
@@ -51,19 +51,16 @@ module Jukebox
           return track
         end
       end
-      nil
-    rescue
-      nil
     end
 
     private def notify(track, user)
       @historian.record track.artists.first.name, track.name
       puts "Now playing #{track.name} by #{track.artists.first.name} on the album #{track.album.name}"
       begin
-        HTTP::Client.post(@player_update_endpoint, nil, { current_track: track, current_user: user }.to_json)
+        HTTP::Client.put(@player_update_endpoint, HTTP::Headers { "content-type" => "application/json" }, body: { now_playing: Models::Notification.new(track, user) }.to_json )
       rescue ex : Exception
         puts ex.message
       end
     end
-  end
+	end
 end

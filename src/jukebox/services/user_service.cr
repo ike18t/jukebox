@@ -5,20 +5,10 @@ module Jukebox
     class UserService
       def self.create_user(id) : Models::User
         spotify_user = Spotify::User.find(id)
-        new_user = Models::User.new(id, spotify_user.display_name, true)
+        new_user = Models::User.new(id, spotify_user.display_name, true, spotify_user.images[0].url)
         save_users(get_users << new_user)
         new_user
       end
-      # def self.create_user(user_id)
-      #   users = get_users
-      #   if users.select { |u| u.id == user_id }.empty?
-      #     user_name = get_name(user_id)
-      #     user = User.new user_id, user_name, true
-      #     users << user
-      #     save_users users
-      #   end
-      #   user
-      # end
 
       def self.get_enabled_users
         get_users.select(&.enabled?)
@@ -39,11 +29,6 @@ module Jukebox
       def self.user_exists?(id)
         get_users.any? { |user| user.id == id }
       end
-
-      # private def self.get_name(user_id)
-      #   spotify_user = Spotify::User.find(user_id)
-      #   spotify_user.display_name
-      # end
 
       private def self.set_enabled(user_id, enabled)
         users = get_users

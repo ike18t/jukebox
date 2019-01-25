@@ -9,7 +9,7 @@ import { UserListComponent } from './user_list_component';
 import { NowPlayingComponent } from './now_playing_component';
 import { AddPlaylistComponent } from './add_playlist_component';
 
-require("../../css/style.scss");
+require('../../css/style.scss');
 
 @Component({
   selector: 'jukebox-application',

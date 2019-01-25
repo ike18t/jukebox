@@ -2,23 +2,27 @@ version: 1.0
 shards:
   db:
     github: crystal-lang/crystal-db
-    version: 0.3.3
+    version: 0.5.1
+
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.1
 
   kemal:
     github: kemalcr/kemal
-    commit: f1edf81d95f0c38628cabce6871681faf4d83de5
+    commit: dcffd7b3f9c89a0847df95319db00912fb194595
 
   kilt:
     github: jeromegn/kilt
-    version: 0.3.3
+    version: 0.4.0
 
   radix:
     github: luislavena/radix
-    version: 0.3.8
+    version: 0.3.9
 
   spec-kemal:
     github: kemalcr/spec-kemal
-    commit: 05cc810f5f5ed890f16bcb06461000b97c625959
+    commit: 64b89c719234ceb92c0a14762dce3afc6257fffc
 
   spotify:
     github: ike18t/spotify.cr
@@ -26,9 +30,9 @@ shards:
 
   sqlite3:
     github: crystal-lang/crystal-sqlite3
-    version: 0.8.1
+    version: 0.10.0
 
   webmock:
     github: manastech/webmock.cr
-    commit: c673f393a31eac2734c7599897357ef1f3f24011
+    commit: ca7c79ab3cc8b4c56cb1d70ba7a6952dc35ef8f6
 
