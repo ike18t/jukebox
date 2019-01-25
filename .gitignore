@@ -5,6 +5,7 @@
 tags*
 public/*.js
 *.log
+frontend/dist
 frontend/typings
 frontend/node_modules
 *.db
