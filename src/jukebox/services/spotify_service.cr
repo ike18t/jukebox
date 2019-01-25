@@ -3,11 +3,6 @@ require "http/client"
 module Jukebox
   module Services
     class SpotifyService
-      PLAY_URL = "https://api.spotify.com/v1/me/player/play"
-      PLAYER_URL = "https://api.spotify.com/v1/me/player"
-      PAUSE_URL = "https://api.spotify.com/v1/me/player/pause"
-      OAUTH_TOKEN_URL = "https://accounts.spotify.com/api/token"
-
       @@playing = true;
 
       def self.play(track_id : String | Nil = nil)
