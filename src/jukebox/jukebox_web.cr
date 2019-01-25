@@ -39,7 +39,7 @@ module Jukebox
     end
 
     post "/playlists" do |env|
-      playlist_url = env.params.body.fetch("playlist_url", "").to_s
+      playlist_url = env.params.json["playlist_url"].as(String)
       begin
         user_id, playlist_id = parse_user_id_and_playlist_id(playlist_url)
         puts user_id

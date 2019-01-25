@@ -48,10 +48,10 @@ export class UserListComponent {
 
   togglePlaylist(playlist: Playlist): void {
     if (playlist.enabled) {
-      this.playlistService.disablePlaylist(playlist);
+      this.playlistService.disable(playlist);
     }
     else {
-      this.playlistService.enablePlaylist(playlist);
+      this.playlistService.enable(playlist);
     }
   }
 }

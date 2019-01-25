@@ -1,20 +1,32 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { PlaylistService } from '../services/playlist_service';
 
 @Component({
   selector: 'add-playlist',
   template: `
     <div class="add-playlist">
-      <form action="playlists" method="POST">
-        <label for="playlists">
-          Add a playlist!
-        </label>
-        <fieldset>
-          <input id="add_playlist_url_input" type="url" name="playlist_url" placeholder="Enter a Spotify playlist URL" required />
-          <input id="add_playlist_submit" type="submit" value="+" />
-        </fieldset>
-      </form>
+      <label>
+        Add a playlist!
+      </label>
+      <div>
+        <input #url id="add_playlist_url_input"
+          type="url"
+          name="playlist_url"
+          placeholder="Enter a Spotify playlist URL"
+          required
+          (keyup.enter)="submit(url.value); url.value = undefined" />
+        <button id="add_playlist_submit"
+          (click)="submit(url.value); url.value = undefined">+</button>
+      </div>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PlaylistService]
 })
-export class AddPlaylistComponent {}
+export class AddPlaylistComponent {
+  constructor(private playlistService: PlaylistService) {}
+
+  public submit(playlistUrl: string) {
+    this.playlistService.create(playlistUrl);
+  }
+}

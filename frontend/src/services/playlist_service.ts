@@ -6,13 +6,15 @@ import { Playlist } from '../models/playlist';
 export class PlaylistService {
   constructor(private http: Http) {}
 
-  enablePlaylist(playlist: Playlist) {
-    const playlistId = encodeURI(playlist.id);
-    this.http.put(`/playlists/${playlistId}/enable`, {}).subscribe();
+  create(playlistUrl: string) {
+    this.http.post('/playlists', { playlist_url: playlistUrl }).subscribe();
   }
 
-  disablePlaylist(playlist: Playlist) {
-    const playlistId = encodeURI(playlist.id);
-    this.http.put(`/playlists/${playlistId}/disable`, {}).subscribe();
+  enable(playlist: Playlist) {
+    this.http.put(`/playlists/${playlist.id}/enable`, {}).subscribe();
+  }
+
+  disable(playlist: Playlist) {
+    this.http.put(`/playlists/${playlist.id}/disable`, {}).subscribe();
   }
 }
