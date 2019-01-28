@@ -15,11 +15,7 @@ module Jukebox
         cache_state = Services::CacheService(Models::PlayerState).get
         player_state = cache_state.empty? ? Models::PlayerState.new : cache_state[0]
 
-        if Services::SpotifyService.playing? && player_state.paused?
-          Services::SpotifyService.pause
-        elsif !Services::SpotifyService.playing? && !player_state.paused?
-          Services::SpotifyService.play
-        elsif !Services::SpotifyService.playing? || player_state.skip?
+        if !Services::SpotifyService.playing? || player_state.skip?
           play_a_song unless player_state.paused?
           Services::CacheService(Models::PlayerState).set([Models::PlayerState.new(skip: false)]) if player_state.skip?
         end
