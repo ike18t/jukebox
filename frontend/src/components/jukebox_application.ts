@@ -45,7 +45,7 @@ export class JukeboxApplication {
 
   constructor(private webSocketService: WebSocketService) {
     webSocketService.registerListener('users', (users: any) => {
-      this.users.next(users.map((user: any) => new User(user.id, user.name, user.enabled)));
+      this.users.next(users.map((user: any) => new User(user.id, user.name, user.enabled, user.image_url)));
     });
 
     webSocketService.registerListener('playlists', (playlists: any) => {
